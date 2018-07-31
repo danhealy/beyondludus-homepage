@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: hx9dC0vnE4NHjjj3HBqxaQHRJRwiqmZstDMzcEs0
+  host: db
+  port: 5432
+
+development:
+  <<: *default
+  database: beyondludus_development
+
+test:
+  <<: *default
+  database: beyondludus_test
+
+production:
+  <<: *default
+  database: beyondludus_production
+  username: beyondludus
+  password: <%= ENV['BEYONDLUDUS_DATABASE_PASSWORD'] %>
