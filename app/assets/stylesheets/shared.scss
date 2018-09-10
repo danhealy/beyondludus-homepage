@@ -1,0 +1,49 @@
+@import "variables.scss";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
+.main-accent-bg {
+  background-color: $color-main-accent;
+}
+
+.main-accent {
+  color: $color-main-accent;
+}
+
+.lightest-bg {
+  background-color: $color-lightest;
+}
+
+.lightest {
+  color: $color-lightest;
+}
+
+.darkest-bg {
+  background-color: $color-darkest;
+}
+
+.darkest {
+  color: $color-darkest;
+}
+
+.secondary-accent-bg {
+  background-color: $color-secondary-accent;
+}
+
+.secondary-accent {
+  color: $color-secondary-accent;
+}
+
+.tertiary-accent-bg {
+  background-color: $color-tertiary-accent;
+}
+
+.tertiary-accent {
+  color: $color-tertiary-accent;
+}

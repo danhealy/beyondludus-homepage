@@ -1,0 +1,19 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: <%= fetch_env_var("PROJECT_ID") %>-tls
+  namespace: default
+spec:
+  secretName: <%= fetch_env_var("PROJECT_ID") %>-tls
+  issuerRef:
+    name: letsencrypt-prod
+  dnsNames:
+  - <%= fetch_env_var("DNS_WEBSITE") %>
+  - <%= fetch_env_var("DNS_ASSETS") %>
+  acme:
+    config:
+    - dns01:
+        provider: prod-clouddns
+      domains:
+      - <%= fetch_env_var("DNS_WEBSITE") %>
+      - <%= fetch_env_var("DNS_ASSETS") %>

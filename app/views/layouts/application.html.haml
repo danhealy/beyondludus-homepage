@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title= @title || "Beyond Ludus"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Montserrat|Oswald:500"
+    = stylesheet_link_tag "https://use.fontawesome.com/releases/v5.2.0/css/all.css", integrity: "sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", crossorigin: "anonymous"
+    = stylesheet_link_tag "devicon.min"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    - if [:home].include? params[:controller].to_sym
+      = stylesheet_link_tag params[:controller]
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield
+    -# .row
+    -#   .col-sm-12
+    -#     %h4 footer

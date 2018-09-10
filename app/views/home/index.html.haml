@@ -1,0 +1,161 @@
+.container-fluid
+  .row
+    .sidebar.main-accent-bg.tertiary-accent.col-12.col-sm-5.col-md-4.col-lg-3
+      .row
+        .top-card.col-12
+          = image_tag "dan_gd_sm-500.jpg", class: "profile"
+          %h1 Dan Healy
+          %h2 Full Stack Ruby Developer
+        .bottom-card.col-12
+          %ul.contact.fa-ul
+            %li.email
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fas.fa-at
+              = mail_to "dan@beyondludus.com"
+            %li.linkedin
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fab.fa-linkedin
+              = link_to "beyondludus", "https://www.linkedin.com/in/beyondludus/", target: "_blank"
+            %li.twitter
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fab.fa-twitter-square
+              = link_to "@healy_dan", "https://twitter.com/healy_dan", target: "_blank"
+            %li.github
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fab.fa-github-square
+              = link_to "danhealy", "https://github.com/danhealy", target: "_blank"
+            %li.stackoverflow
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fab.fa-stack-overflow
+              = link_to "dan-healy", "https://stackoverflow.com/users/646219/dan-healy", target: "_blank"
+            %li.pdf
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.fas.fa-file-pdf
+              = link_to "PDF Resume", "pdf/danhealy_resume.pdf", target: "_blank"
+            %li.bw-pdf
+              %span.fa-layers.fa-fw.fa-li.fa-2x
+                %i.far.fa-file-pdf
+              = link_to "PDF Resume (Greyscale)", "pdf/danhealy_resume_bw.pdf", target: "_blank"
+
+    .main-content.white-bg.col-12.col-sm-7.col-md-8.col-lg-9
+      .row.no-gutters
+        .col-12.summary
+          %h3 About Me
+          %ul
+            %li Ruby developer since 2007, previously hardware engineer with logic design
+            %li Focus on back-end programming: APIs, data modeling, etc
+            %li Proficient with Bootstrap / jQuery front-end web dev
+            %li Experienced with tvOS front-end dev and Cloud (AWS/GCP) DevOps
+            %li Interested in machine learning and game design
+      .row.no-gutters
+        .col-12.skills
+          %h3 Skills
+          %ul.skills-list
+            %li.ruby.float-left{title: "Ruby"}
+              = link_to "https://www.ruby-lang.org/en/", target: "_blank" do
+                %i.devicon-ruby-plain
+                %span Ruby
+            %li.rails.float-left{title: "Rails"}
+              = link_to "https://rubyonrails.org/", target: "_blank" do
+                %i.devicon-rails-plain
+                %span Rails
+            %li.rubymotion.float-left{title: "RubyMotion"}
+              = link_to "http://www.rubymotion.com/", target: "_blank" do
+                = image_tag "rubymotion-logo-bw.png", class: "svg-logo"
+                %span RubyMotion
+            %li.aws.float-left{title: "Amazon Web Services"}
+              = link_to "https://aws.amazon.com/" do
+                %i.devicon-amazonwebservices-plain
+                %span AWS
+            %li.gcp.float-left{title: "Google Cloud Platform"}
+              = link_to "https://cloud.google.com/", target: "_blank" do
+                = image_tag "logo_svg/google-cloud.svg", class: "svg-logo"
+                %span GCP
+            %li.docker.float-left{title: "Docker"}
+              = link_to "https://www.docker.com/", target: "_blank" do
+                %i.devicon-docker-plain
+                %span Docker
+            %li.kubernetes.float-left{title: "Kubernetes"}
+              = link_to "https://kubernetes.io/", target: "_blank" do
+                = image_tag "logo_svg/kubernetes.svg", class: "svg-logo"
+                %span Kubernetes
+            %li.jquery.float-left{title: "jQuery"}
+              = link_to "https://jquery.com/", target: "_blank" do
+                %i.devicon-jquery-plain
+                %span jQuery
+            %li.html5.float-left{title: "HTML 5"}
+              = link_to "https://en.wikipedia.org/wiki/HTML5", target: "_blank" do
+                %i.devicon-html5-plain
+                %span HTML 5
+            %li.sass.float-left{title: "Sass"}
+              = link_to "https://sass-lang.com/", target: "_blank" do
+                %i.devicon-sass-original
+                %span Sass
+            %li.haml.float-left{title: "Haml"}
+              = link_to "http://haml.info/", target: "_blank" do
+                = image_tag "logo_svg/haml.svg", class: "svg-logo"
+                %span Haml
+            %li.bootstrap.float-left{title: "Bootstrap"}
+              = link_to "https://getbootstrap.com/", target: "_blank" do
+                %i.devicon-bootstrap-plain
+                %span Bootstrap
+            %li.apple.float-left{title: "iOS / tvOS"}
+              = link_to "https://developer.apple.com/ios/", target: "_blank" do
+                = image_tag "logo_svg/ios.svg", class: "svg-logo"
+                %span iOS / tvOS
+            %li.atom.float-left{title: "Atom"}
+              = link_to "https://atom.io/", target: "_blank" do
+                %i.devicon-atom-original
+                %span Atom
+        .col-12
+          %p This website was (over)built as a demonstration, using Rails, responsive design with Haml/Sass/Bootstrap, and hosted on Google Cloud using Kubernetes/Docker.
+      .row.no-gutters
+        .col-12
+          %h3 Employment History
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2
+              = image_tag "thrillcall_bw.png", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name Thrillcall
+              %h5.title Developer
+              %h6.years 2010-2018
+              %p.description
+                Thrillcall connects fans with the concerts they're interested in, through a comprehensive listing of events and the ability for users to track the musicians they already like and listen to on social media.
+                %br
+                %br
+                Projects implemented:
+                %ul
+                  %li The main API for event data, consumed by mobile apps and external customers including Myspace.
+                  %li Apple TV app using RubyMotion and Apple's TVML.
+                  %li Automated API and Web data incorporation for ~25 event/ticketing sources including StubHub.
+                  %li Data pipeline using AWS SQS and DynamoDB for long term storage of realtime ticket pricing, database contained 3 billion pricing records as of mid 2018.
+                  %li Integrations with ~10 third-party services including Spotify to match users' listening data with their favorite artists on our site.
+                  %li Social integrations including Facebook Canvas page tab for listing events, and a Hootsuite-like product for Artists and Venues to promote events across multiple social platforms.
+                  %li Various front-end tasks including music service connections, responsive redesign for the Event web page, SEO, and admin tooling. Worked closely with designers on all front-end heavy projects.
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2
+              = image_tag "pillar_bw.png", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name Pillar Data Systems
+              %h5.title FPGA & Firmware Engineer
+              %h6.years 2006-2009
+              %p.description
+                Responsible for the design and implementation of FPGA-based systems, including Verilog module design and related firmware in C++.
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2
+              = image_tag "nasa_bw.png", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name NASA Ames Research Center
+              %h5.title Software Development Assistant (Internship)
+              %h6.years 2005
+              %p.description
+                Assisted with various tasks on a large Air Traffic Management software project, using ANSI C.
+      .row.no-gutters
+        .col-12.school
+          %h3 Education
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2
+              = image_tag "ucsc_bw.png", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name UC Santa Cruz
+              %p.title B.S. Computer Engineering

@@ -1,0 +1,61 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: <%= fetch_env_var("PROJECT_ID") %>-db-migrate
+spec:
+  completions: 1
+  template:
+    metadata:
+      name: <%= fetch_env_var("PROJECT_ID") %>-db-migrate
+    spec:
+      containers:
+      - name: <%= fetch_env_var("PROJECT_ID") %>-migrate
+        image: us.gcr.io/<%= "#{fetch_env_var("PROJECT_ID")}/#{fetch_env_var("REPO_NAME")}:#{fetch_env_var("COMMIT_SHA")}" %>
+        imagePullPolicy: Always
+        args: ["bundle", "exec", "rake", "db:create", "db:migrate"]
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: username
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: password
+        - name: DB_HOST
+          value: localhost
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_DBNAME
+          value: "<%= fetch_env_var("DB_DBNAME") %>"
+        - name: IMAGE_STORAGE_BUCKET_NAME
+          value: "<%= fetch_env_var("BUCKET_NAME") %>"
+        - name: ASSETS_URL
+          value: "http://<%= fetch_env_var("DNS_ASSETS") %>"
+        - name: SECRET_KEY_BASE
+          value: "<%= fetch_env_var("SECRET_KEY_BASE") %>"
+      - name: cloudsql-proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        command: ["/cloud_sql_proxy", "--dir=/cloudsql",
+                  "-instances=<%= fetch_env_var("CONNECTION_NAME") %>=tcp:3306",
+                  "-credential_file=/secrets/cloudsql/credentials.json"]
+        volumeMounts:
+          - name: cloudsql-instance-credentials
+            mountPath: /secrets/cloudsql
+            readOnly: true
+          - name: ssl-certs
+            mountPath: /etc/ssl/certs
+          - name: cloudsql
+            mountPath: /cloudsql
+      volumes:
+      - name: cloudsql-instance-credentials
+        secret:
+          secretName: cloudsql-instance-credentials
+      - name: cloudsql
+        emptyDir:
+      - name: ssl-certs
+        hostPath:
+          path: /etc/ssl/certs
+      restartPolicy: Never

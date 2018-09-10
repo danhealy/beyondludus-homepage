@@ -1,0 +1,126 @@
+@import "variables.scss";
+
+body {
+  color: $color-darkest;
+  background-color: $color-lightest;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+h4, h5 {
+  font-size: 1.6rem;
+}
+h6 {
+  font-size: 1.2rem;
+}
+
+a {
+  color: $color-secondary-accent;
+  &:hover {
+    color: $color-lightest;
+  }
+  &:active {
+    color: $color-tertiary-accent;
+  }
+}
+
+.main-content {
+  margin: 20px 0px;
+}
+
+.contact {
+  list-style: none;
+  padding-left: 25px;
+
+  li {
+    margin: 10px 0px;
+    line-height: 2.8rem;
+  }
+}
+
+.top-card {
+  text-align: center;
+}
+
+.bottom-card {
+  padding: 10px 0px 20px 0px;
+}
+
+.profile {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  margin: 20px 0px 10px 0px;
+}
+
+
+.skills-list {
+  list-style: none;
+  font-size: 3rem;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1rem;
+  text-align: center;
+  li {
+    //float: left;
+    margin: 0px 20px 20px 0px;
+    position: relative;
+    height: 50px;
+    width: 70px;
+
+    i {
+      color: $color-darkest;
+    }
+
+    :hover {
+      text-decoration: none;
+      i {
+        color: $color-darkest;
+      }
+      span {
+        text-decoration: underline;
+        color: $color-secondary-accent;
+      }
+    }
+
+    span {
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      width: 100%;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      color: $color-darkest;
+    }
+  }
+  .svg-logo {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.employer-row {
+  margin-bottom: 10px;
+}
+
+.employer-logo {
+  width: 100%;
+  max-width: 70px;
+  display:block;
+  margin: auto;
+}

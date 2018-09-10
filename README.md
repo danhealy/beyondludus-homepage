@@ -1,76 +1,25 @@
 # README
 
-Following https://blog.cosmocloud.co/rails-on-kubernetes-part-1/
+This is a simple demonstration site I'm using to showcase some technologies, and also to publish my personal resume and portfolio.
 
-Install ruby 2.5.1, rails, docker for mac
+This was deployed to Google Cloud Kubernetes Engine, and was based on examples from the following sources:
 
-Minikube
-`brew cask install minikube`
-
-Install google cloud sdk
-```
-brew cask install google-cloud-sdk
-# relog shell
-gcloud auth login
-# finish login
-gcloud config set project beyondludus
-gcloud auth configure-docker
-```
-
-Generated with:
-
-```
-rails new beyondludus --skip-coffee --database=postgresql
-```
-
-## Install devise
-```
-rails generate devise:install
-rails generate devise user
-```
-
-Devise notes:
-
-```
-  Some setup you must do manually if you haven't yet:
-
-    1. Ensure you have defined default url options in your environments files. Here
-       is an example of default_url_options appropriate for a development environment
-       in config/environments/development.rb:
-
-         config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-       In production, :host should be set to the actual host of your application.
-
-    2. Ensure you have defined root_url to *something* in your config/routes.rb.
-       For example:
-
-         root to: "home#index"
-
-    3. Ensure you have flash messages in app/views/layouts/application.html.erb.
-       For example:
-
-         <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
-
-    4. You can copy Devise views (for customization) to your app by running:
-
-         rails g devise:views
-```
+* [Razvan Draghici's "Rails on Kubernetes" blog series](https://blog.cosmocloud.co/rails-on-kubernetes-part-1/)
+* [Abe Voelker's "Deploying a Ruby on Rails application to Google Kubernetes Engine" blog series](https://blog.abevoelker.com/2018-04-05/deploying-a-ruby-on-rails-application-to-google-kubernetes-engine-a-step-by-step-guide-part-1/)
 
 
-Setup docker.  Dockerfile in tutorial vs dockerfile in Compose example
-https://docs.docker.com/compose/rails/
+Using, mainly:
+* Ruby 2.5
+* Rails 5
+* Bootstrap 4
+* Haml
+* Sass
+* Google fonts, FontAwesome, Devicon 2.0
 
-Want to use alpine, ruby 2.5.1:
-https://hub.docker.com/r/library/ruby/tags/2.5.1-alpine3.7/
+# Notes
 
-Changed the ADD commands to COPY as per compose tutorial
-Changed myapp to beyondludus
-
-
-Had to comment out test for Redis in the docker-entrypoint.sh
-Had to modify the gemfile to use tzinfo-data always
-
-Added this line to development.rb to whitelist 172 private network IPs
-`config.web_console.whitelisted_ips = '172.16.0.0/12'`
+* Used rails generator option `--skip-coffee`
+* Customized Dockerfile, changed the `ADD` commands to `COPY` as per compose tutorial
+* Had to add additional whitelisted_ips: `config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16']`
+* Had to comment out test for Redis in the docker-entrypoint.sh
+* Had to modify the gemfile to use tzinfo-data always

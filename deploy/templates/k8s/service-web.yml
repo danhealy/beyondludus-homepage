@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: <%= fetch_env_var("PROJECT_ID") %>-web
+  name: <%= fetch_env_var("PROJECT_ID") %>-web
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    run: <%= fetch_env_var("PROJECT_ID") %>-web
+  sessionAffinity: None
+  type: NodePort

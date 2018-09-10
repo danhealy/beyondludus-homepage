@@ -24,3 +24,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore filled out k8s templates.
+/deploy/*
+!/deploy/templates
+!/deploy/templates/*
+
+# osx noise
+.DS_Store

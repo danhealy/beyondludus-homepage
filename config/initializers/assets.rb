@@ -12,3 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+add_stylesheets = Dir.glob(Rails.root.join("app/assets/stylesheets/*"))
+add_fonts = Dir.glob(Rails.root.join("app/assets/fonts/*"))
+Rails.application.config.assets.precompile += add_stylesheets
+Rails.application.config.assets.precompile += add_fonts
+Rails.application.config.assets.precompile << %r{[\w-]+\.(?:txt|eot|svg|ttf|woff2?)$}
