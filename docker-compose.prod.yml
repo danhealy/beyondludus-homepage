@@ -1,4 +1,4 @@
-# Only used for development.
+# Only used for production.
 
 version: '3.7'
 
@@ -16,7 +16,7 @@ services:
   postgres:
     # 9.6 is freshest version available in Google Cloud SQL
     image: postgres:9.6-alpine
-    env_file: .env
+    env_file: .env.prod
     volumes:
       - db-data:/var/lib/postgresql/db-data
     networks:
@@ -30,8 +30,10 @@ services:
       - backend
 
   sidekiq:
-    build: .
-    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file: .env.prod
     depends_on:
       - redis
     command: "bin/bundle exec sidekiq -C config/sidekiq.yml"
@@ -45,7 +47,7 @@ services:
 
   lb:
     image: traefik
-    command: "--api --logLevel=DEBUG --docker --docker.swarmMode --docker.watch --docker.network=frontend"
+    command: "--api --logLevel=DEBUG --docker --docker.domain=beyondludus.com --docker.swarmMode --docker.watch --docker.network=frontend"
     ports:
       - "80:80"
       - "8080:8080"
@@ -65,11 +67,10 @@ services:
         traefik.enable: "false"
 
   web:
-    build: .
-    env_file: .env
-    command: "bin/bundle exec rails s -p 3000 -b 0.0.0.0"
-    volumes:
-      - .:/beyondludus
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file: .env.prod
     ports:
       - "3000:3000"
     depends_on:
@@ -83,5 +84,4 @@ services:
       labels:
         traefik.port: 80
         traefik.backend: "frontend"
-        traefik.frontend.rule: "Host:web.docker.localhost"
-        #traefik.backend.loadbalancer.stickiness: true
+        traefik.frontend.rule: "Host:beyondludus.com"

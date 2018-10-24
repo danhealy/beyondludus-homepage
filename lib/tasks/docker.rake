@@ -2,7 +2,7 @@ namespace :docker do
 
   desc "Push docker images to Google Cloud Registry"
   task :push_image do
-    hostname              = "us.gcr.io"
+    hostname              = "gcr.io"
     project_id            = "beyondludus-homepage" # FIXME: Pull this from env?
     image_name            = "github-danhealy-beyondludus-homepage"
 

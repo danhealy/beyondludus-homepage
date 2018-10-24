@@ -2,14 +2,19 @@
 
 This is a simple demonstration site I'm using to showcase some technologies, and also to publish my personal resume and portfolio.
 
-This was deployed to Google Cloud Kubernetes Engine, and was based on examples from the following sources:
+This was deployed to Linode using Docker Swarm, after having evaluated the possibility of using Kubernetes.  My takeaway from attempting to get this working in Kubernetes is that I found the manifests and server requirements too heavy weight for such a small project.  I attempted to use some alternatives to reduce complexity, like ksonnet and Kontena, but mainly it felt like I was trading complexity in Kubernetes for even more esoteric domain complexity and not really gaining any overall simplification.
 
+Those pain points would be worth dealing with in an environment that requires rapid scaling, high availability and all the bells and whistles, but for this demonstration I just felt it was a bit too much.
+
+Some good blog posts I studied:
 * [Razvan Draghici's "Rails on Kubernetes" blog series](https://blog.cosmocloud.co/rails-on-kubernetes-part-1/)
 * [Abe Voelker's "Deploying a Ruby on Rails application to Google Kubernetes Engine" blog series](https://blog.abevoelker.com/2018-04-05/deploying-a-ruby-on-rails-application-to-google-kubernetes-engine-a-step-by-step-guide-part-1/)
 * [LH Fong's "Deploying Redis with Persistence on Google Kubernetes Engine" blog post](https://estl.tech/deploying-redis-with-persistence-on-google-kubernetes-engine-c1d60f70a043)
+* [CoderJourney's "Learning Rails" series of tutorials, especially in regards to Docker deployment](https://coderjourney.com/learning-rails-deploying-rails-part-8/)
+* [Adilson Cesar's "Using Reverse Load Balance Proxy with Docker Swarm" blog post](https://medium.com/@adilsonbna/traefik-using-reverse-load-balance-proxy-with-docker-swarm-3c8dd3921b7a)
 
 
-Using, mainly:
+The web front end itself is built around:
 * Ruby 2.5
 * Rails 5
 * Bootstrap 4
