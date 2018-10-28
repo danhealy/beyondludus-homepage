@@ -5,12 +5,16 @@ version: '3.7'
 volumes:
   db-data:
     external: false
+  redis-data:
+    external: false
 
 networks:
   frontend:
     driver: overlay
+    attachable: true
   backend:
     driver: overlay
+    attachable: true
 
 services:
   postgres:
@@ -26,6 +30,8 @@ services:
     image: redis:4.0.10-alpine
     ports:
       - "6379:6379"
+    volumes:
+      - redis-data:/data
     networks:
       - backend
 

@@ -1,6 +1,9 @@
 @import "variables.scss";
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins/_breakpoints";
 @import "bootstrap";
 @import "shared.scss";
 

@@ -62,7 +62,7 @@
             %li.rubymotion.float-left{title: "RubyMotion"}
               = link_to "http://www.rubymotion.com/", target: "_blank" do
                 = image_tag "rubymotion-logo-bw.png", class: "svg-logo"
-                %span RubyMotion
+                %span{style: "margin-left: -8px;"} RubyMotion
             %li.aws.float-left{title: "Amazon Web Services"}
               = link_to "https://aws.amazon.com/" do
                 %i.devicon-amazonwebservices-plain
@@ -108,7 +108,9 @@
                 %i.devicon-atom-original
                 %span Atom
         .col-12
-          %p This website was (over)built as a demonstration, using Rails, responsive design with Haml/Sass/Bootstrap, and hosted on Linode using Docker.
+          %p
+            This website was (over)built as a demonstration, using Rails, responsive design with Haml/Sass/Bootstrap, and hosted on Linode using Docker Swarm.
+            = link_to "Code available on GitHub.", "https://github.com/danhealy/beyondludus-homepage", target: "_blank", class: "github-link"
       .row.no-gutters
         .col-12
           %h3 Employment History

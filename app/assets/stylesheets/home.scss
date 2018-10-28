@@ -1,9 +1,18 @@
 @import "variables.scss";
 
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
 body {
   color: $color-darkest;
   background-color: $color-lightest;
   font-size: 1.4rem;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1 {
@@ -36,6 +45,20 @@ a {
 
 .main-content {
   margin: 20px 0px;
+  padding: 0px 15px 0px 25px;
+}
+
+// Can't get media-breakpoint-down to work for some reason, says undefined mixin
+@media (max-width: 575.98px) {
+  .sidebar {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .sidebar {
+    max-width: 270px;
+  }
 }
 
 .contact {
@@ -112,6 +135,11 @@ a {
 
 .full-width {
   width: 100%;
+}
+
+a.github-link:hover {
+  text-decoration: underline;
+  color: $color-darkest;
 }
 
 .employer-row {
