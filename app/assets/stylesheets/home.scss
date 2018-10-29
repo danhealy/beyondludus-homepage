@@ -148,7 +148,24 @@ a.github-link:hover {
 
 .employer-logo {
   width: 100%;
-  max-width: 70px;
   display:block;
   margin: auto;
+}
+
+@media (max-width: 424.98px) {
+  .employer-logo {
+    max-width: 40px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 1023.98px) {
+  .employer-logo {
+    max-width: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .employer-logo {
+    max-width: 70px;
+  }
 }
