@@ -15,6 +15,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 add_stylesheets = Dir.glob(Rails.root.join("app/assets/stylesheets/*"))
 add_fonts = Dir.glob(Rails.root.join("app/assets/fonts/*"))
+add_pdf = Dir.glob(Rails.root.join("app/assets/pdf/*"))
 Rails.application.config.assets.precompile += add_stylesheets
 Rails.application.config.assets.precompile += add_fonts
-Rails.application.config.assets.precompile << %r{[\w-]+\.(?:txt|eot|svg|ttf|woff2?)$}
+Rails.application.config.assets.precompile += add_pdf
+Rails.application.config.assets.precompile << %r{[\w-]+\.(?:txt|eot|svg|ttf|pdf|woff2?)$}

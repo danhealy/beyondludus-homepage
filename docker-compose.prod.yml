@@ -49,23 +49,32 @@ services:
 
   lb:
     image: traefik
-    command:
-      - "--api --logLevel=DEBUG --docker --docker.domain=beyondludus.com"
-      - "--docker.swarmMode --docker.watch --docker.network=frontend"
-      - "--defaultEntryPoints=http,https"
-      - "--entryPoints=Name:http Address::80 Redirect.EntryPoint:https"
-      - "--entryPoints=Name:https Address::443 TLS"
-      - "--retry --acme --acme.email=dan@beyondludus.com"
-      - "--acme.storage=/acme.json --acme.entryPoint=https --acme.onHostRule"
-      - "--acme.httpChallenge --acme.httpChallenge.entryPoint=http"
+    command: "--api \
+      --logLevel=DEBUG \
+      --docker \
+      --docker.domain=beyondludus.com \
+      --docker.swarmMode \
+      --docker.watch \
+      --docker.network=frontend \
+      --defaultEntryPoints=http,https \
+      --entryPoints='Name:http Address::80 Redirect.EntryPoint:https Redirect.Regex:http://beyondludus.com/(.*) Redirect.Replacement:https://beyondludus.com/$$1' \
+      --entryPoints='Name:https Address::443 TLS' \
+      --retry \
+      --acme \
+      --acme.email=dan@beyondludus.com \
+      --acme.storage=/beyondludus/acme.json \
+      --acme.entryPoint=https \
+      --acme.onHostRule \
+      --acme.httpChallenge \
+      --acme.httpChallenge.entryPoint=http"
     ports:
       - "80:80"
       - "8080:8080"
       - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml # Using labels and command args instead of toml
-      - /beyondludus/acme.json:/acme.json # Had to create this empty file manually
+      - /dev/null:/beyondludus/traefik.toml # Using labels and command args instead of toml
+      - /beyondludus/acme.json:/beyondludus/acme.json # Had to create this empty file manually
     networks:
       - frontend
     deploy:
@@ -99,8 +108,10 @@ services:
         traefik.backend: "web"
         traefik.domain: "beyondludus.com"
         traefik.frontend.rule: "Host:beyondludus.com"
-        traefik.frontend.entryPoints: "https"
-        traefik.frontend.headers.forceSTSHeader: true
+        traefik.frontend.entryPoints: "http,https"
+        traefik.frontend.redirect: "https"
+        traefik.frontend.headers.forceSTSHeader: "true"
+        traefik.frontend.headers.SSLRedirect: "true"
         traefik.frontend.headers.STSSeconds: 315360000
-        traefik.frontend.headers.STSIncludeSubdomains: true
-        traefik.frontend.headers.STSPreload: true
+        traefik.frontend.headers.STSIncludeSubdomains: "true"
+        traefik.frontend.headers.STSPreload: "true"

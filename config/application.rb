@@ -17,6 +17,6 @@ module Beyondludus
     # the framework and any gems in your application.
 
     config.active_job.queue_adapter = :sidekiq
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets", "fonts", "pdf")
   end
 end
