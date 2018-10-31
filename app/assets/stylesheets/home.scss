@@ -48,9 +48,6 @@ a {
   padding: 0px 15px 0px 25px;
 }
 
-.sidebar {
-  min-height: calc(100vh);
-}
 // Can't get media-breakpoint-down to work for some reason, says undefined mixin
 @media (max-width: 575.98px) {
   .sidebar {
@@ -61,6 +58,7 @@ a {
 @media (min-width: 576px) {
   .sidebar {
     max-width: 270px;
+    min-height: calc(100vh);
   }
 }
 
