@@ -48,6 +48,9 @@ a {
   padding: 0px 15px 0px 25px;
 }
 
+.sidebar {
+  min-height: calc(100vh);
+}
 // Can't get media-breakpoint-down to work for some reason, says undefined mixin
 @media (max-width: 575.98px) {
   .sidebar {
@@ -156,16 +159,25 @@ a.github-link:hover {
   .employer-logo {
     max-width: 40px;
   }
+  .employer-logo-column {
+    max-width: 60px;
+  }
 }
 
 @media (min-width: 425px) and (max-width: 1023.98px) {
   .employer-logo {
     max-width: 50px;
   }
+  .employer-logo-column {
+    max-width: 70px;
+  }
 }
 
 @media (min-width: 1024px) {
   .employer-logo {
     max-width: 70px;
+  }
+  .employer-logo-column {
+    max-width: 100px;
   }
 }
