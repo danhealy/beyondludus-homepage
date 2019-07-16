@@ -80,6 +80,18 @@
               = link_to "https://kubernetes.io/", target: "_blank" do
                 = image_tag "logo_svg/kubernetes.svg", class: "svg-logo"
                 %span Kubernetes
+            %li.postgresql.float-left{title: "PostgreSQL"}
+              = link_to "https://www.postgresql.org/", target: "_blank" do
+                %i.devicon-postgresql-plain
+                %span PostgreSQL
+            %li.mongodb.float-left{title: "MongoDB"}
+              = link_to "https://www.mongodb.com/", target: "_blank" do
+                %i.devicon-mongodb-plain
+                %span MongoDB
+            %li.elasticsearch.float-left{title: "ElasticSearch"}
+              = link_to "https://www.elastic.co/", target: "_blank" do
+                = image_tag "logo_svg/elasticsearch.svg", class: "svg-logo"
+                %span ElasticSearch
             %li.jquery.float-left{title: "jQuery"}
               = link_to "https://jquery.com/", target: "_blank" do
                 %i.devicon-jquery-plain
@@ -124,7 +136,9 @@
               %h5.title Senior API Developer
               %h6.years 2019
               %p.description
-                Responsible for features and maintenance of existing Rails API back-end. Implemented fast ElasticSearch bulk reindexing task; AngularJS 1.7 front-end and back-end work to integrate BambooHR's ATS with programming assessment lifecycle.
+                Responsible for features and maintenance of existing Rails API back-end. Implemented fast ElasticSearch bulk reindexing task; AngularJS 1.7 front-end and back-end work to integrate
+                = link_to "BambooHR's ATS", "https://www.bamboohr.com/applicant-tracking/", target: "_blank", class: "main-text-link"
+                with the programming assessment lifecycle.
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
               = link_to "https://www.crunchbase.com/organization/thrillcall", target: "_blank" do
@@ -140,9 +154,16 @@
                 Projects implemented:
                 %ul
                   %li The main API for event data, consumed by mobile apps and external customers including Myspace.
-                  %li Apple TV app using RubyMotion and Apple's TVML.
+                  %li
+                    Apple TV app using RubyMotion and
+                    = link_to "Apple's TVML.", "https://developer.apple.com/documentation/tvml", target: "_blank", class: "main-text-link"
                   %li Automated API and Web data incorporation for ~25 event/ticketing sources including StubHub.
-                  %li Data pipeline using AWS SQS and DynamoDB for long term storage of realtime ticket pricing, database contained 3 billion pricing records as of mid 2018.
+                  %li
+                    Data pipeline using
+                    = link_to "AWS SQS", "https://aws.amazon.com/sqs/", target: "_blank", class: "main-text-link"
+                    and
+                    = link_to "DynamoDB", "https://aws.amazon.com/dynamodb/", target: "_blank", class: "main-text-link"
+                    for long term storage of realtime ticket pricing, database contained 3 billion pricing records as of mid 2018.
                   %li Integrations with ~10 third-party services including Spotify to match users' listening data with their favorite artists on our site.
                   %li Social integrations including Facebook Canvas page tab for listing events, and a Hootsuite-like product for Artists and Venues to promote events across multiple social platforms.
                   %li Various front-end tasks including music service connections, responsive redesign for the Event web page, SEO, and admin tooling. Worked closely with designers on all front-end heavy projects.
