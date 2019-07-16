@@ -46,11 +46,12 @@ a {
 .main-content {
   margin: 20px 0px;
   padding: 0px 15px 0px 25px;
+  .row {
+    padding-bottom: 15px;
+  }
 }
 
-.row {
-  padding-bottom: 15px;
-}
+
 
 // Can't get media-breakpoint-down to work for some reason, says undefined mixin
 @media (max-width: 575.98px) {
