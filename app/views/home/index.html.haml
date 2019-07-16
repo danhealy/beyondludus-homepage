@@ -44,7 +44,7 @@
           %ul
             %li Ruby developer since 2007, previously hardware engineer with logic design
             %li Focus on back-end programming: APIs, data modeling, PostgreSQL, etc
-            %li Proficient with Bootstrap / jQuery front-end web dev
+            %li Proficient with Bootstrap / jQuery front-end web dev, learning Vue.js
             %li Experienced with tvOS front-end dev and Cloud (AWS/GCP) DevOps
             %li Interested in machine learning and game design
             %li Based out of Portland, Ore. and currently considering local and remote positions
@@ -111,15 +111,26 @@
         .col-12
           %p
             This website was (over)built as a demonstration, using Rails, responsive design with Haml/Sass/Bootstrap, and hosted on Linode using Docker Swarm.
-            = link_to "Code available on GitHub.", "https://github.com/danhealy/beyondludus-homepage", target: "_blank", class: "github-link"
+            = link_to "Code available on GitHub.", "https://github.com/danhealy/beyondludus-homepage", target: "_blank", class: "main-text-link"
       .row.no-gutters
         .col-12
           %h3 Employment History
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
-              = image_tag "thrillcall_bw.png", class: "employer-logo"
+              = link_to "https://qualified.io/", target: "_blank" do
+                = image_tag "logo_svg/qualified-icon-black.svg", class: "employer-logo"
             .col-10.col-sm-8.col-md-10
-              %h4.name Thrillcall
+              %h4.name= link_to "Qualified.io", "https://qualified.io/", target: "_blank", class: "main-text-link"
+              %h5.title Senior API Developer
+              %h6.years 2019
+              %p.description
+                Responsible for features and maintenance of existing Rails API back-end. Implemented fast ElasticSearch bulk reindexing task; AngularJS 1.7 front-end and back-end work to integrate BambooHR's ATS with programming assessment lifecycle.
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2.employer-logo-column
+              = link_to "https://www.crunchbase.com/organization/thrillcall", target: "_blank" do
+                = image_tag "thrillcall_bw.png", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name= link_to "Thrillcall", "https://www.crunchbase.com/organization/thrillcall", target: "_blank", class: "main-text-link"
               %h5.title Developer
               %h6.years 2010-2018
               %p.description
@@ -137,18 +148,20 @@
                   %li Various front-end tasks including music service connections, responsive redesign for the Event web page, SEO, and admin tooling. Worked closely with designers on all front-end heavy projects.
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
-              = image_tag "pillar_bw.png", class: "employer-logo"
+              = link_to "https://en.wikipedia.org/wiki/Pillar_Data_Systems", target: "_blank" do
+                = image_tag "pillar_bw.png", class: "employer-logo"
             .col-10.col-sm-8.col-md-10
-              %h4.name Pillar Data Systems
+              %h4.name= link_to "Pillar Data Systems", "https://en.wikipedia.org/wiki/Pillar_Data_Systems", target: "_blank", class: "main-text-link"
               %h5.title FPGA & Firmware Engineer
               %h6.years 2006-2009
               %p.description
                 Responsible for the design and implementation of FPGA-based systems, including Verilog module design and related firmware in C++.
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
-              = image_tag "nasa_bw.png", class: "employer-logo"
+              = link_to "https://www.aviationsystemsdivision.arc.nasa.gov/research/foundations/index.shtml", target: "_blank" do
+                = image_tag "nasa_bw.png", class: "employer-logo"
             .col-10.col-sm-8.col-md-10
-              %h4.name NASA Ames Research Center
+              %h4.name= link_to "NASA Ames Research Center", "https://www.aviationsystemsdivision.arc.nasa.gov/research/foundations/index.shtml", target: "_blank", class: "main-text-link"
               %h5.title Software Development Assistant (Internship)
               %h6.years 2005
               %p.description
@@ -158,7 +171,8 @@
           %h3 Education
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
-              = image_tag "ucsc_bw.png", class: "employer-logo"
+              = link_to "https://www.ucsc.edu/", target: "_blank" do
+                = image_tag "ucsc_bw.png", class: "employer-logo"
             .col-10.col-sm-8.col-md-10
-              %h4.name UC Santa Cruz
+              %h4.name= link_to "UC Santa Cruz", "https://www.ucsc.edu/", target: "_blank", class: "main-text-link"
               %p.title B.S. Computer Engineering
