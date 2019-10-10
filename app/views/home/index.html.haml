@@ -47,7 +47,6 @@
             %li Proficient with Bootstrap / jQuery front-end web dev, learning Vue.js
             %li Experienced with tvOS front-end dev and Cloud (AWS/GCP) DevOps
             %li Interested in machine learning and game design
-            %li Based out of Portland, Ore. and currently considering local and remote positions
       .row.no-gutters
         .col-12.skills
           %h3 Skills
@@ -127,6 +126,14 @@
       .row.no-gutters
         .col-12
           %h3 Employment History
+          .row.no-gutters.employer-row
+            .col-2.col-sm-4.col-md-2.employer-logo-column
+              = link_to "https://dutchie.com/", target: "_blank" do
+                = image_tag "logo_svg/dutchie-logo-bw.svg", class: "employer-logo"
+            .col-10.col-sm-8.col-md-10
+              %h4.name= link_to "dutchie", "https://dutchie.com/", target: "_blank", class: "main-text-link"
+              %h5.title Senior Software Engineer
+              %h6.years 2019 - Present
           .row.no-gutters.employer-row
             .col-2.col-sm-4.col-md-2.employer-logo-column
               = link_to "https://qualified.io/", target: "_blank" do

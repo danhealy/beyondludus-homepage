@@ -161,6 +161,7 @@ a.main-text-link:hover {
 @media (max-width: 424.98px) {
   .employer-logo {
     max-width: 40px;
+    max-height: 40px;
   }
   .employer-logo-column {
     max-width: 60px;
@@ -170,6 +171,7 @@ a.main-text-link:hover {
 @media (min-width: 425px) and (max-width: 1023.98px) {
   .employer-logo {
     max-width: 50px;
+    max-height: 50px;
   }
   .employer-logo-column {
     max-width: 70px;
@@ -179,6 +181,7 @@ a.main-text-link:hover {
 @media (min-width: 1024px) {
   .employer-logo {
     max-width: 70px;
+    max-height: 70px;
   }
   .employer-logo-column {
     max-width: 100px;
