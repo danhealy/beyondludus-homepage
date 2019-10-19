@@ -50,7 +50,7 @@ services:
         traefik.backend: "sidekiq"
 
   lb:
-    image: traefik
+    image: traefik:1.7.18-alpine
     command: "--api --logLevel=DEBUG --docker --docker.swarmMode --docker.watch --docker.network=frontend"
     ports:
       - "80:80"
